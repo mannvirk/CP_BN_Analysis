@@ -16,7 +16,12 @@ st.metric("Bank Nifty LTP", ltp)
 BN_TOKEN = 260105
 
 
-data = kite.historical_data(token, interval="5minute", days=5)
+data = kite.historical_data(
+    instrument_token=BN_TOKEN,
+    interval="5minute",
+    days=5
+)
+
 df = pd.DataFrame(data)
 df = add_indicators(df)
 
