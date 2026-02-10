@@ -12,8 +12,9 @@ kite = get_kite()
 ltp = kite.ltp("NSE:NIFTY BANK")["NSE:NIFTY BANK"]["last_price"]
 st.metric("Bank Nifty LTP", ltp)
 
-inst = kite.instruments("NSE")
-token = [i for i in inst if i["tradingsymbol"] == "BANKNIFTY"][0]["instrument_token"]
+
+BN_TOKEN = 260105
+
 
 data = kite.historical_data(token, interval="5minute", days=5)
 df = pd.DataFrame(data)
